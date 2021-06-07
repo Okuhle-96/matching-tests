@@ -1,51 +1,55 @@
 describe("The Matching Days Functions", function(){
 
-  describe("Should be able to set two dates", function(){
-    it("should be able to set date 1 and show it's day.", function(){
-      let dayMatch = matchingDays();
+  describe("Should be able to set two dates and het their days with their colors.", function(){
+    it("should be able to get the date input of 1996-01-22 from DATE ONE and show it's day by with color BROWN.", function(){
+      let dayMatch = matchingDaysFactoryFunction();
 
-      dayMatch.setDate1("1996-01-22");
+      dayMatch.setFirstDay("1996-01-22");
 
-      assert.equal(dayMatch.getDay1(), "Monday");
+      assert.deepEqual(dayMatch.getFirstDay(), { day: 'Monday', color: '' });
     })
 
-    it("should be able to set date 2 and show it's day", function () {
-      let dayMatch = matchingDays();
-      dayMatch.setDate2("2017-04-06");
-      assert.equal(dayMatch.getDay2(), "Thursday");
+    it("should be able to get the date input of 2017-04-06 from DATE TWO and show it's day by with color BLUE.", function () {
+      let dayMatch = matchingDaysFactoryFunction();
+
+      dayMatch.setSecondDay("2017-04-06");
+
+      assert.deepEqual(dayMatch.getSecondDay(), { day: 'Thursday', color: '' });
     })
   })
 
-  describe("Should be able to get two dates when ", function(){
-    it("should be able to set date 1 and show it's day.", function(){
-      let dayMatch = matchingDays();
+  describe("Should be able to get the BOTH DAYS with their colors from differnt dates. ", function(){
+    it("should be able to get the day set for DATE ONE and show it's day by with color BROWN.", function(){
+      let dayMatch = matchingDaysFactoryFunction();
 
-      dayMatch.setDate1("1996-01-22");
-      dayMatch.setDate2("2010-07-01");
+      dayMatch.setFirstDay("1996-01-22");
+      dayMatch.setSecondDay("2010-07-01");
 
-      assert.equal(dayMatch.getDay1(), "Monday");
+      assert.deepEqual(dayMatch.getFirstDay(), { day: 'Monday', color: '' });
     })
 
-    it("should be able to set date 2 and show it's day", function () {
-      let dayMatch = matchingDays();
-      dayMatch.setDate1("1965-05-08");
-      dayMatch.setDate2("2001-07-13");
-      assert.equal(dayMatch.getDay2(), "Friday");
+    it("should be able to get the day set for DATE TWO and show it's day by with color BLUE.", function () {
+      let dayMatch = matchingDaysFactoryFunction();
+
+      dayMatch.setFirstDay("1965-02-24");
+      dayMatch.setSecondDay("2001-07-13");
+      assert.deepEqual(dayMatch.getSecondDay(), { day: 'Friday', color: '' });
     })
   })
    
 
-  describe("Should be able to get a matching day ", function(){
-    it("should be able to set date 1 and show it's day.", function(){
-      let dayMatch = matchingDays();
+  describe("Should be check if days are matching ", function(){
+    it("should be able able to check if the date one day is on the sameday as date two day and the day should change to color GREEN.", function(){
+      let dayMatch = matchingDaysFactoryFunction();
 
-      dayMatch.setDate1("1996-01-22");
-      dayMatch.setDate2("2021-05-31");
+      dayMatch.setFirstDay("1996-01-22");
+      dayMatch.setSecondDay("2021-05-31");
 
-      assert.equal(dayMatch.sameDayCheck(), true);
+      assert.equal(dayMatch.checkMatchingDays(), "green");
     })
   
 
   })
 
   });
+
