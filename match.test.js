@@ -35,19 +35,6 @@ describe("The Matching Days Functions", function(){
       dayMatch.setSecondDay("2001-07-13");
       assert.deepEqual(dayMatch.getSecondDay(), { day: 'Friday', color: '' });
     })
-  })
-   
-
-  describe("Should be check if days are matching ", function(){
-    it("should be able able to check if the date one day is on the sameday as date two day and the day should change to color GREEN.", function(){
-      let dayMatch = matchingDaysFactoryFunction();
-
-      dayMatch.setFirstDay("1996-01-22");
-      dayMatch.setSecondDay("2021-05-31");
-
-      assert.equal(dayMatch.checkMatchingDays(), "green");
-    })
-  
 
   })
 
